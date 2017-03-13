@@ -1,0 +1,4 @@
+nano:install
+nmap:r
+tree:status
+shutter: in
