@@ -1,6 +1,6 @@
-#Vagrant
+# Vagrant
 
-##1. Introducción
+## 1. Introducción
 *Vagrant* es una herramienta para la creación y configuración de entornos
 de desarrollo virtualizados. Originalmente se desarrolló para VirtualBox
 y sistemas de configuración tales como Chef, Salt y Puppet. Sin embargo
@@ -9,9 +9,9 @@ proveedores, como VMware, Amazon EC2, LXC, DigitalOcean, etc. Aunque
 *Vagrant* se ha desarrollado en Ruby se puede usar en multitud de
 proyectos escritos en otros lenguajes.
 
-##2. Primeros pasos
+## 2. Primeros pasos
 
-###2.1. Instalación
+### 2.1. Instalación
 La instalación debemos hacerla en una máquina real. Hay varias
 formas de instalar *Vagrant*:
 
@@ -19,14 +19,14 @@ formas de instalar *Vagrant*:
 * Usando un paquete *vagrant.deb* disponible para descargar del
   servidor Leela.
 
-###2.2. Proyecto
+### 2.2. Proyecto
 Comenzamos creando un directorio ***mivagrant16*** en ***Documentos***
 para nuestro proyecto *vagrant*. Ejecutamos ***vagrant init*** para
 inicializar el directorio como un proyecto *vagrant*.
 
 ![001.png](./images/001.png)
 
-###2.3. Imagen, caja o box
+### 2.3. Imagen, caja o box
 Ahora necesitamos obtener una imagen de un sistema operativo.
 Vamos a conseguir una imagen de un Ubuntu Precise de 32 bits con el
 comando ***vagrant box add micaja16_ubuntu_precise32
@@ -42,7 +42,7 @@ de nuestro proyecto. Cambiamos la línea *config.vm.box = "base"* por
 
 ![003.png](./images/003.png)
 
-###2.4. Iniciar una nueva máquina
+### 2.4. Iniciar una nueva máquina
 Vamos a iniciar nuestra máquina virtual nueva usando *Vagrant*. Para
 ello, nos situamos en la carpeta de nuestro proyecto y ejecutamos el
 comando ***vagrant up***.
@@ -60,8 +60,8 @@ A continuación, se muestran algunos de los comandos más útiles de
 * ***vagrant status***: Estado actual de la máquina virtual.
 * ***vagrant destroy***: Para eliminar completamente la máquina virtual.
 
-##3. Configuración del entorno virtual
-###3.1. Carpetas sincronizadas
+## 3. Configuración del entorno virtual
+### 3.1. Carpetas sincronizadas
 La carpeta del proyecto que contiene el *Vagrantfile* es visible para el
 sistema
 virtualizado, esto nos permite compartir archivos fácilmente entre los
@@ -82,7 +82,7 @@ Comando ***ls /vagrant***
 
 ![006.png](./images/006.png)
 
-###3.2. Redireccionamiento de los puertos
+### 3.2. Redireccionamiento de los puertos
 Cuando trabajamos con máquinas virtuales, es frecuente usarlas para
 proyectos enfocados a la web, y para acceder a las páginas es necesario configurar el enrutamiento de puertos.
 
@@ -123,7 +123,7 @@ accede por el puerto 4567, pero en realidad estamos accediendo al puerto
 
 ![014.png](./images/014.png)
 
-##4. Ejemplos
+## 4. Ejemplos
 
 A continuación se muestran algunos ejemplos como información.
 
@@ -148,7 +148,7 @@ aplicaciones gráficas instaladas en la máquina virtual, mediante SSH:
         config.ssh.forward_agent = true
   	  	config.ssh.forward_x11 = true
 
-##5. Suministro
+## 5. Suministro
 Uno de los mejores aspectos de *Vagrant* es el uso de herramientas de
 suministro. Esto es, ejecutar "una receta" o una serie de scripts durante
 el proceso de arranque del entorno virtual para instalar, configurar y
@@ -159,7 +159,7 @@ apagar y destruir la máquina.
 
 ![015.png](./images/015.png)
 
-###5.1. Suministro mediante shell script
+### 5.1. Suministro mediante shell script
 Vamos a suministrar a la MV un pequeño script para instalar Apache. Para
 ello, creamos el script *install_apache.sh*, dentro del proyecto con el
 siguiente contenido:
@@ -194,7 +194,7 @@ iniciado, abrimos navegador en la máquina real con el URL
 
 ![021.png](./images/021.png)
 
-###5.2. Suministro mediante Puppet
+### 5.2. Suministro mediante Puppet
 Modificamos el archivo *Vagrantfile* para que acepte órdenes Puppet
 añadiendo las siguientes líneas:
 
@@ -221,13 +221,13 @@ paquete *nmap*.
 
 ![025.png](./images/025.png)
 
-##6. Nuestra caja personalizada
+## 6. Nuestra caja personalizada
 En los apartados anteriores hemos descargado una caja de un
 repositorio de Internet, y luego la hemos provisionado para
 personalizarla. En este apartado vamos a crear nuestra propia caja
 personalizada a partir de una máquina virtual de VirtualBox.
 
-###6.1. Preparar la MV VirtualBox
+### 6.1. Preparar la MV VirtualBox
 Lo primero que tenemos que hacer es preparar nuestra máquina virtual con
 una configuración por defecto, por si queremos publicar nuestro Box, ésto
 se realiza para seguir un estándar y que todo el mundo pueda usar dicho
@@ -270,7 +270,7 @@ compartir carpetas con el anfitrión.
 
 ![030.png](./images/030.png)
 
-###6.2. Crear la caja vagrant
+### 6.2. Crear la caja vagrant
 Una vez hemos preparado la máquina virtual ya podemos crear nuestra caja
 *Vagrant* personalizada.
 

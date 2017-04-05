@@ -6,8 +6,8 @@ En esta actividad vamos a montar un servidor de recursos compartidos SMB/CIFS co
 * Un cliente openSUSE 13.2
 * Un cliente Windows 7
 
-##1. Servidor openSUSE 13.2
-###1.1. Preparativos
+## 1. Servidor openSUSE 13.2
+### 1.1. Preparativos
 Esta máquina será uno de los openSUSE 13.2 y tendrá la siguiente configuración:
 
 * IP estática: 172.18.16.31
@@ -35,7 +35,7 @@ Comando ***sudo blkid***
 
 ![Comando sudo blkid](./images/005.png)
 
-###1.2. Usuarios locales
+### 1.2. Usuarios locales
 Creamos los usuarios locales *jedi1*, *jedi2*, *sith1*, *sith2*, *smbguest* y *supersamba*.
 
 ![Usuarios locales](./images/006.png)
@@ -52,18 +52,18 @@ En torno al usuario *smbguest*, para asegurarnos de que nadie puede usar dicho u
 
 ![Fichero /etc/passwd](./images/008.png)
 
-###1.3. Instalar Samba
+### 1.3. Instalar Samba
 Ejecutamos el comando ***zypper install samba*** para instalar el servicio *Samba*.
 
 ![zypper install samba](./images/009.png)
 
 ![zypper install samba](./images/010.png)
 
-###1.4. Crear las carpetas para los futuros recursos compartidos
+### 1.4. Crear las carpetas para los futuros recursos compartidos
 
 Vamos a crear tres carpetas para los recursos compartidos.
 
-####Carpeta ***/srv/samba16/public.d***
+#### Carpeta ***/srv/samba16/public.d***
 
 * Creamos la carpeta ***/srv/samba16/public.d***.
 
@@ -83,7 +83,7 @@ Usamos el parámetro *-p* en el comando *mkdir* para crear, en el caso de que no
 
 ![Carpeta /srv/samba16/public.d](./images/014.png)
 
-####Carpeta ***/srv/samba16/corusant.d***
+#### Carpeta ***/srv/samba16/corusant.d***
 
 * Creamos la carpeta ***/srv/samba16/corusant.d***.
 
@@ -101,7 +101,7 @@ Usamos el parámetro *-p* en el comando *mkdir* para crear, en el caso de que no
 
 ![Carpeta /srv/samba16/corusant.d](./images/018.png)
 
-####Carpeta ***/srv/samba16/tatooine.d***
+#### Carpeta ***/srv/samba16/tatooine.d***
 
 * Creamos la carpeta ***/srv/samba16/tatooine.d***.
 
@@ -119,7 +119,7 @@ Usamos el parámetro *-p* en el comando *mkdir* para crear, en el caso de que no
 
 ![Carpeta /srv/samba16/tatooine.d](./images/022.png)
 
-###1.5. Configurar el servidor Samba
+### 1.5. Configurar el servidor Samba
 
 Vamos a configurar los recursos compartidos del servidor Samba. Podemos hacerlo modificando el fichero de configuración o por entorno gráfico con Yast. En este caso vamos a realizar la configuración mediante el fichero ***/etc/samba/smb.conf***. Para comenzar, realizamos una copia de seguridad a dicho fichero con el comando ***cp /etc/samba/smb.conf /etc/samba/smb.conf.000***.
 
@@ -139,7 +139,7 @@ Comando ***testparm***
 
 ![Comando testparm](./images/026.png)
 
-###1.6. Usuarios Samba
+### 1.6. Usuarios Samba
 Después de crear los usuarios en el sistema, hay que añadirlos a Samba. Para ello, ejecutamos el comando ***smbpasswd -a nombreusuario***, para crear una clave de Samba para un usuario del sistema.
 
 ![smbpasswd -a usuario](./images/027.png)
@@ -148,7 +148,7 @@ Ejecutamos el comando ***pdbedit -L*** para comprobar la lista de usuarios Samba
 
 ![pdbedit -L](./images/028.png)
 
-###1.7. Reiniciar
+### 1.7. Reiniciar
 
 Una vez terminada la configuración del Samba, debemos reiniciar el servicio para que se lean los cambios realizados. Para ello, ejecutamos los comandos ***systemctl stop smb*** y ***systemctl start smb*** para detener e iniciar el servicio, y el comando ***systemctl status smb*** para comprobar que el servicio está activo.
 
@@ -165,7 +165,7 @@ Comando ***sudo netstat -tap***
 
 ![sudo netstat -tap](./images/031.png)
 
-##2. Cliente Windows 7
+## 2. Cliente Windows 7
 
 Esta máquina Windows 7 tendrá la siguiente configuración:
 
@@ -181,7 +181,7 @@ Debemos añadir en el fichero ***C:\Windows\System32\drivers\etc\hosts*** los eq
 
 ![C:\Windows\System32\drivers\etc\hosts](./images/034.png)
 
-###2.1. Cliente Windows GUI
+### 2.1. Cliente Windows GUI
 
 Desde un cliente Windows 7 vamos a acceder a los recursos compartidos del servidor Samba.
 
@@ -219,7 +219,7 @@ Comando ***netstat -n***
 
 ![netstat -n](./images/043.png)
 
-###2.2. Cliente Windows comandos
+### 2.2. Cliente Windows comandos
 
 En el caso de que hubiera una conexión abierta la cerramos con el comando ***net use * /d /y***. Ejecutamos el comando ***net use*** para comprobar que no hay conexiones establecidas.
 
@@ -237,7 +237,7 @@ Para finalizar este apartado, vamos a conectarnos desde la máquina Windows al s
 
 ![net use \\172.18.16.31\tatooine /USER:jedi1](./images/047.png)
 
-###2.3. Montaje automático
+### 2.3. Montaje automático
 
 Vamos a proceder a realizar una conexión con uno de los recursos compartidos y montarlo en una unidad. Para ello, ejecutamos el comando ***net use S: \\\172.18.16.31\tatooine /USER:jedi1*** para montar el recurso *tatooine* en la unidad *S*.
 
@@ -261,7 +261,7 @@ Comando ***netstat -n***
 
 ![netstat -n](./images/052.png)
 
-##3. Cliente openSUSE 13.2
+## 3. Cliente openSUSE 13.2
 
 Esta máquina será el segundo openSUSE 13.2 y tendrá la siguiente configuración:
 
@@ -272,7 +272,7 @@ Debemos añadir en el fichero ***/etc/hosts*** los equipos *smb-server16* y *smb
 
 ![Fichero /etc/hosts](./images/053.png)
 
-###3.1. Cliente GNU/Linux GUI
+### 3.1. Cliente GNU/Linux GUI
 
 Accedemos a los recursos del servidor Samba, pulsando *CTRL+L* y escribimos *smb://172.18.16.31*
 
@@ -308,7 +308,7 @@ Comando ***netstat -n***
 
 ![netstat -n](./images/062.png)
 
-###3.2. Cliente GNU/Linux comandos
+### 3.2. Cliente GNU/Linux comandos
 
 Comenzamos comprobando el uso de las siguientes herramientas.
 
@@ -342,7 +342,7 @@ Comando ***netstat -n***
 
 ![netstat -n](./images/069.png)
 
-###3.3. Montaje automático
+### 3.3. Montaje automático
 
 Acabamos de acceder a los recursos remotos, realizando un montaje de forma manual. Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están. Si queremos volver a acceder a los recursos compartidos debemos repetir el proceso de montaje manual, a no ser que hagamos una configuración de montaje permanente o automática.
 
@@ -354,7 +354,7 @@ Para comprobar que el montaje automático funciona correctamente reiniciamos la 
 
 ![df -hT](./images/071.png)
 
-##4. Preguntas para resolver
+## 4. Preguntas para resolver
 
 * ¿Las claves de los usuarios en GNU/Linux deben ser las mismas que las que usa Samba? No necesariamente deben ser iguales. Los usuarios en el sistema y en Samba pueden tener contraseñas diferentes.
 * ¿Puedo definir un usuario en Samba llamado *sith3*, y que no exista como usuario del sistema? No. Para utilizar un usuario en samba hay que crearlo anteriormente en el sistema.

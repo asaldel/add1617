@@ -1,9 +1,9 @@
-#Acceso remoto VNC
+# Acceso remoto VNC
 
 Para realizar esta actividad usaremos máquinas virtuales con openSUSE 13.2, Windows 7 y Windows 2012 Server.
 
-##1. Configuración de las máquinas virtuales
-###1.1. Windows 7
+## 1. Configuración de las máquinas virtuales
+### 1.1. Windows 7
 * Configuración de red
 
 ![Configuración de red](./images/001.png)
@@ -12,7 +12,7 @@ Para realizar esta actividad usaremos máquinas virtuales con openSUSE 13.2, Win
 
 ![Nombre de equipo y grupo de trabajo](./images/002.png)
 
-###1.2. Windows 2012 Server
+### 1.2. Windows 2012 Server
 * Configuración de red
 
 ![Configuración de red](./images/003.png)
@@ -21,7 +21,7 @@ Para realizar esta actividad usaremos máquinas virtuales con openSUSE 13.2, Win
 
 ![Nombre de equipo y grupo de trabajo](./images/004.png)
 
-###1.3. openSUSE 13.2 Server
+### 1.3. openSUSE 13.2 Server
 * Configuración de red
 
 ![Configuración de red](./images/005.png)
@@ -32,7 +32,7 @@ Para realizar esta actividad usaremos máquinas virtuales con openSUSE 13.2, Win
 
 ![Nombre de equipo y grupo de trabajo](./images/006.png)
 
-###1.4. openSUSE 13.2 Cliente
+### 1.4. openSUSE 13.2 Cliente
 * Configuración de red
 
 ![Configuración de red](./images/008.png)
@@ -43,9 +43,10 @@ Para realizar esta actividad usaremos máquinas virtuales con openSUSE 13.2, Win
 
 ![Nombre de equipo y grupo de trabajo](./images/009.png)
 
-##2. Conexiones remotas con VNC
+## 2. Conexiones remotas con VNC
 Vamos a realizar las siguientes conexiones remotas VNC:
-###2.1. Acceder a Windows 2012 Server desde Windows 7
+
+### 2.1. Acceder a Windows 2012 Server desde Windows 7
 Desde Windows 7 ejecutamos ***TightVNC Viewer*** e introducimos la dirección IP del Windows Server 2012.
 
 ![TightVNC Viewer Win7](./images/011.png)
@@ -62,7 +63,7 @@ Para comprobar la conexión entre las dos máquinas, ejecutamos el comando ***ne
 
 ![Comando netstat -n](./images/014.png)
 
-###2.2. Acceder a Windows 2012 Server desde openSUSE 13.2
+### 2.2. Acceder a Windows 2012 Server desde openSUSE 13.2
 En una terminal de la consola, y como superusuario, ejecutamos ***vncviewer*** para comenzar la conexión remota.
 Comenzamos introduciendo la dirección IP del Windows 2012 Server. 
 
@@ -80,7 +81,7 @@ Para comprobar la conexión entre las dos máquinas, ejecutamos el comando ***ne
 
 ![comando netstat -ntap](./images/018.png)
 
-###2.3. Acceder a OpenSUSE 13.2 desde OpenSUSE 13.2
+### 2.3. Acceder a OpenSUSE 13.2 desde OpenSUSE 13.2
 En una terminal de la consola, y como superusuario, ejecutamos ***vncviewer*** para comenzar la conexión remota.
 Comenzamos introduciendo la dirección IP del openSUSE 13.2 que queremos conectar acompañada del puerto por el que se va a acceder. 
 
@@ -95,7 +96,7 @@ Para comprobar el estado de la conexión, ejecutamos el comando ***netstat -ntap
 ![comando netstat -ntap](./images/022.png)
 
 
-###2.4. Acceder a OpenSUSE 13.2 desde Windows 7
+### 2.4. Acceder a OpenSUSE 13.2 desde Windows 7
 Ejecutamos ***TightVNC Viewer*** y ponemos la dirección IP de la máquina openSUSE 13.2, con el puerto por el que se va a acceder.
 
 ![TightVNC Viewer Win7](./images/020.png)
@@ -107,22 +108,3 @@ Pulsamos en *Connect* y vemos la conexión establecida entre ambas máquinas.
 Para finalizar, comprobamos la conexión con ***netstat -n***.
 
 ![comando ntetstat -n](./images/024.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

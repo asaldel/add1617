@@ -1,14 +1,14 @@
-#Clientes ligeros con LTSP
+# Clientes ligeros con LTSP
 
 En esta actividad vamos a usar dos máquinas virtuales para montar los clientes ligeros.
 
-##1. Servidor LTSP
-###1.1. Preparación MV
+## 1. Servidor LTSP
+### 1.1. Preparación MV
 Comenzamos creando la máquina virtual que actuará como servidor LTSP. Esta máquina tendrá dos interfaces de red, una en *adaptador puente* para poder salir a Internet, y la otra en *red interna*, que se comunicará con las máquinas clientes.
 
 ![Configuración de red](./images/001.png)
 
-###1.2. Instalación del SSOO
+### 1.2. Instalación del SSOO
 El sistema operativo elegido para nuestro servidor LTSP es Ubuntu, aunque es preferible utilizar una versión ligera, ya que consumen menos memoria.
 
 Una vez instalada, procedemos a configurar ambos adaptadores de red, siguiendo la configuración dada  por el profesor. Al terminar la configuración de red, capturamos la salida de los siguientes comandos.
@@ -41,7 +41,7 @@ Para terminar la instalación y configuración del sistema operativo, creamos tr
 
 ![Usuarios locales](./images/008.png)
 
-###1.3. Instalación del servicio LTSP
+### 1.3. Instalación del servicio LTSP
 Instalamos el servidor de clientes ligeros, según la documentación para el sistema operativo elegido. En nuestro caso, al usar Ubuntu, lo instalamos con ***apt-get install ltsp-server-standalone***. Al finalizar la instalación, ejecutamos ***ltsp-build-client***, para crear la imagen del sistema operativo que se cargará en la memoria de  los clientes ligeros.
 
 Ejecutamos ***ltsp-info*** para consultar información de la imagen que hemos creado.
@@ -60,7 +60,7 @@ Para terminar este apartado, reiniciamos el servicio DHCP ejecutando el comando 
 
 ![DHCP status](./images/012.png)
 
-##2. Preparar MV Cliente
+## 2. Preparar MV Cliente
 Creamos la máquina cliente en VirtualBox con las siguientes opciones:
     
 * Sin disco duro y sin unidad de DVD
@@ -92,16 +92,3 @@ Comando ***whoami***
 Comando ***who***
 
 ![Comando who](./images/018.png)
-
-
-
-       
-
-
-
-
-
-
-
-
-

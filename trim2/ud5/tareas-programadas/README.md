@@ -1,9 +1,9 @@
-#Tareas programadas
+# Tareas programadas
 
-##1. Windows
+## 1. Windows
 Vamos a hacer una tarea programada y otra diferida con Windows.
 
-###1.1. Configuración
+### 1.1. Configuración
 Comando ***date***
 
 ![001.png](./images/001.png)
@@ -28,7 +28,7 @@ Comando ***ping 8.8.4.4***
 
 ![006.png](./images/006.png)
 
-###1.2. Tarea diferida
+### 1.2. Tarea diferida
 La tarea diferida se define para ejecutarse una sola vez en una fecha futura.
 
 Vamos a programar una tarea diferida para que nos muestre un mensaje en pantalla. Para ello, vamos a *Panel de control -> Herramientas administrativas -> Programador de tareas*, y seleccionamos *Crear una tarea básica*.
@@ -47,7 +47,7 @@ Vamos a programar una tarea diferida para que nos muestre un mensaje en pantalla
 
 ![013.png](./images/013.png)
 
-###1.3. Tarea periódica
+### 1.3. Tarea periódica
 La tarea programada se define para ejecutarse periódicamente cada intervalo de tiempo.
 
 Vamos a programar una tarea periódica para apagar el equipo.
@@ -66,10 +66,10 @@ Vamos a programar una tarea periódica para apagar el equipo.
 
 ![020.png](./images/020.png)
 
-##2. openSUSE
+## 2. openSUSE
 Vamos a hacer una tarea programada y otra diferida con GNU/Linux.
 
-###2.1. Configuración
+### 2.1. Configuración
 
 Comando ***date***
 
@@ -107,7 +107,7 @@ Comando ***blkid***
 
 ![029.png](./images/029.png)
 
-###2.2. Tarea diferida
+### 2.2. Tarea diferida
 Creamos una tarea para las 12:50 que escriba el texto *'Hola Mundo'* en un fichero *README.txt*.
 
 ![030.png](./images/030.png)
@@ -116,7 +116,7 @@ Comprobamos que se ha creado dicho fichero y vemos su contenido.
 
 ![031.png](./images/031.png)
 
-###2.3. Tarea periódica
+### 2.3. Tarea periódica
 Vamos a programar una tarea periódica (crontab) para apagar el equipo.
 
 Para programar una tarea periódica tenemos estas formas:
@@ -131,4 +131,3 @@ Como vamos a programar el apagado del sistema, usamos el fichero */etc/crontab*.
 Esta tarea apagará el sistema cada día a las 13:32.
 
 ![033.png](./images/033.png)
-

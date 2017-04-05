@@ -1,4 +1,4 @@
-#Acceso remoto SSH
+# Acceso remoto SSH
 
 Para realizar esta práctica vamos a necesitar las siguientes 3 máquinas virtuales:
 
@@ -6,8 +6,8 @@ Para realizar esta práctica vamos a necesitar las siguientes 3 máquinas virtua
 * Un cliente openSUSE 13.2
 * Un cliente Windows 7
 
-##1. Preparativos
-###1.1. Servidor SSH (openSUSE 13.2)
+## 1. Preparativos
+### 1.1. Servidor SSH (openSUSE 13.2)
 Esta máquina será uno de los openSUSE 13.2 y tendrá la siguiente configuración:
 
 * IP estática: 172.18.16.31
@@ -60,7 +60,7 @@ Continuamos creando 4 usuarios en *ssh-server16*.
 [3]:./images/009.png
 [4]:./images/010.png
 
-###1.2. Cliente openSUSE 13.2
+### 1.2. Cliente openSUSE 13.2
 Esta máquina será el segundo openSUSE 13.2 y tendrá la siguiente configuración:
 
 * IP estática: 172.18.16.32
@@ -76,7 +76,7 @@ Comprobamos la resolución de nombres haciendo *ping* a ambos equipos.
 
 ![ping -c4 ssh-client16b](./images/013.png)
 
-###1.3. Cliente Windows 7
+### 1.3. Cliente Windows 7
 Para permitir el acceso SSH desde una máquina Windows debemos instalar PuTTY, el software cliente para sistemas Windows.
 
 Configuramos esta máquina con los siguientes valores:
@@ -94,11 +94,11 @@ Comprobamos la resolución de nombres haciendo *ping* a ambos equipos.
 
 ![ping -c4 ssh-client16a](./images/016.png)
 
-##2. Instalación del servicio SSH
+## 2. Instalación del servicio SSH
 
 Instalamos el servicio SSH en la máquina ssh-server16, ejecutando el comando ***zypper install openssh***.
 
-###2.1. Comprobación
+### 2.1. Comprobación
 
 Verificamos que el servicio está en ejecución con el comando ***systemctl status sshd***.
 
@@ -108,7 +108,7 @@ Con el comando ***netstat -ntap*** comprobamos que el servicio está escuchando 
 
 ![netstat -ntap](./images/019.png)
 
-###2.2. Primera conexión SSH desde cliente
+### 2.2. Primera conexión SSH desde cliente
 
 Comenzamos comprobando la conectividad desde el cliente con el servidor haciendo *ping*.
 
@@ -144,7 +144,7 @@ Para continuar, pulsamos en *Sí*, introducimos la contraseña y vemos como se h
 
 ![Conexión SSH desde Windows](./images/027.png )
 
-###2.3. ¿Y si cambiamos las claves del servidor?
+### 2.3. ¿Y si cambiamos las claves del servidor?
 
 Comprobamos el contenido del directorio ***/etc/ssh***.
 
@@ -192,7 +192,7 @@ A continuación, al intentar establecer una conexión con el usuario *salazar2*,
 
 ![Conexión SSH desde Windows](./images/038.png)
 
-##3. Personalización del prompt Bash
+## 3. Personalización del prompt Bash
 
 Para personalizar el prompt cuando tenemos un conexión SSH activa, debemos iniciar sesión con el usuario al que queremos aplicar esta característica en *ssh-server16*, y modificamos el archivo ***/home/salazar1/.bashrc***, añadiendo las líneas que se muestran a continuación.
 
@@ -216,7 +216,7 @@ Para comprobar el funcionamiento de lo realizado, iniciamos una conexión SSH de
 
 Podemos ver cómo ha cambiado el color y el texto que aparece en el prompt al tener una conexión SSH activa.
 
-##4. Autenticación mediante claves públicas
+## 4. Autenticación mediante claves públicas
 
 El objetivo de este apartado es el de configurar SSH para poder acceder desde el cliente openSUSE 13.2, usando el usuario *salazar4* sin poner contraseña, pero usando claves pública/privada.
 
@@ -244,7 +244,7 @@ Por el contrario, comprobamos que al acceder desde *ssh-client16b*, si se nos pi
 
 ![Conexión SSH desde Windows](./images/054.png)
 
-##5. Uso de SSH como túnel para X
+## 5. Uso de SSH como túnel para X
 
 Para realizar este apartado, instalamos en *ssh-server16* una aplicación de entorno gráfico que no esté en los clientes. En nuestro caso vamos a utilizar el editor Geany.
 
@@ -266,7 +266,7 @@ Una vez guardado el fichero creado, iniciamos sesión como *salazar1* en *ssh-se
 
 ![Fichero prueba.txt](./images/059.png)
 
-##6. Aplicaciones Windows nativas
+## 6. Aplicaciones Windows nativas
 
 Comenzamos instalando el emulador *Wine* en *ssh-server16*.
 
@@ -286,12 +286,12 @@ Una vez que hemos guardado el archivo creado, iniciamos sesión en *ssh-server16
 
 ![Fichero prueba-wine.txt](./images/063.png)
 
-##7. Restricciones de uso
+## 7. Restricciones de uso
 
 En este apartado vamos a modificar los usuarios del servidor SSH para añadir algunas restricciones de uso del servicio.
 
-###7.1. Sin restricción (tipo 1)
-
+### 7.1. Sin restricción (tipo 1)
++
 El usuario *salazar1* podrá conectarse vía SSH sin restricciones.
 
 * Cliente openSUSE 13.2
@@ -304,7 +304,7 @@ El usuario *salazar1* podrá conectarse vía SSH sin restricciones.
 
 ![Conexión SSH desde Windows](./images/066.png)
 
-###7.2. Restricción total (tipo 2)
+### 7.2. Restricción total (tipo 2)
 
 Esta restricción consiste en que el usuario *salazar2* no podrá conectarse por SSH a *ssh-server16* desde ambos clientes, por lo que sólo podrá ser usado de forma local.
 
@@ -324,7 +324,7 @@ Una vez establecida la restricción, intentamos iniciar una conexión desde ambo
 
 ![Conexión SSH desde Windows](./images/070.png)
 
-###7.3. Restricción sobre aplicaciones (tipo 3)
+### 7.3. Restricción sobre aplicaciones (tipo 3)
 
 En este apartado vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 

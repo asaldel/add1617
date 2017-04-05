@@ -1,13 +1,13 @@
-#Servidor LDAP
+# Servidor LDAP
 En esta actividad vamos a montar un servidor LDAP con openSUSE 13.2. Para ello necesitaremos las siguientes 2 máquinas virtuales:
 
 * Un servidor openSUSE 13.2
 * Un cliente openSUSE 13.2
 
-##1. Servidor LDAP
+## 1. Servidor LDAP
 Comenzamos la instalación y configuración del servidor LDAP.
 
-###1.1. Preparativos
+### 1.1. Preparativos
 Esta máquina será uno de los openSUSE 13.2 y tendrá la siguiente configuración:
 
 * IP estática: 172.18.16.31
@@ -67,7 +67,7 @@ Comando ***blkid***
 
 ![011.png](./images/011.png)
 
-###1.2. Instalación del Servidor LDAP
+### 1.2. Instalación del Servidor LDAP
 
 Procedemos a la instalación del módulo *yast2-auth-server*, que sirve para gestionar el servidor LDAP.
 
@@ -127,7 +127,7 @@ Instalamos la herramienta *gq* con el comando ***zypper install gq*** y comproba
 
 ![028.png](./images/028.png)
 
-###1.3. Problemas
+### 1.3. Problemas
 
 Si tenemos que desinstalar cualquier paquete hacemos:
 
@@ -136,7 +136,7 @@ Si tenemos que desinstalar cualquier paquete hacemos:
 * mv /etc/openldap /etc/openldap.000
 * mv /var/lib/ldap /var/lib/ldap.000
 
-###1.4. Crear usuarios y grupos LDAP
+### 1.4. Crear usuarios y grupos LDAP
 
 Ejecutamos *Yast* y buscamos *Gestión de usuarios y grupos*. En el interior de esta herramienta gráfica, utilizamos el filtro LDAP y creamos el grupo *piratas*, que contendrá los usuarios *pirata21* y *pirata22*.
 
@@ -148,10 +148,10 @@ Iniciamos *gq* y comprobamos que se han creado el grupo *piratas* y los usuarios
 
 ![050.png](./images/050.png)
 
-##2. Autenticación
+## 2. Autenticación
 En este punto vamos a escribir información en el servidor LDAP.
 
-###2.1. Preparativos
+### 2.1. Preparativos
 Esta máquina será uno de los openSUSE 13.2 y tendrá la siguiente configuración:
 
 * IP estática: 172.18.16.32
@@ -219,7 +219,7 @@ Iniciamos *gq* en el cliente y comprobamos que se han creado el grupo *piratas* 
 
 ![053.png](./images/053.png)
 
-###2.2. Instalar cliente LDAP
+### 2.2. Instalar cliente LDAP
 
 Debemos instalar el paquete *yast2-auth-client*, que nos ayudará a configurar la máquina para autenticación.
 
@@ -234,4 +234,3 @@ Iniciamos *Authentication Client* y procedemos a realizar la conexión con el se
 ![054.png](./images/054.png)
 
 ![055.png](./images/055.png)
-

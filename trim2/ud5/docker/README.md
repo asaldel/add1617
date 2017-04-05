@@ -1,11 +1,11 @@
-#Docker
+# ocker
 
-##1. Introducción
+## 1. Introducción
 Es muy común que nos encontremos desarrollando una aplicación y llegue el momento que decidamos tomar todos sus archivos y migrarlos ya sea al ambiente de producción, de prueba o simplemente probar su comportamiento en diferentes plataformas y servicios. Para situaciones de este estilo existen herramientas que, entre otras cosas, nos facilitan el embalaje y despliegue de la aplicación, es aquí donde entra en juego *Docker*.
 
 Esta herramienta nos permite crear lo que ellos denominan contenedores, lo cual son aplicaciones empaquetadas auto-suficientes, muy livianas que son capaces de funcionar en prácticamente cualquier ambiente, ya que tiene su propio sistema de archivos, librerías, terminal, etc.
 
-##2. Requisitos
+## 2. Requisitos
 Para esta actividad vamos a usar un máquina virtual con openSUSE Leap 42.2. Debemos configurar la máquina según las indicaciones del profesor. Una vez configurada, ejecutamos los siguientes comandos de comprobación:
 
 Comando ***date***
@@ -44,7 +44,7 @@ Comando ***blkid***
 
 ![009.png](./images/009.png)
 
-##3. Instalación y primeras pruebas
+## 3. Instalación y primeras pruebas
 Comenzamos instalando *docker* con el comando ***zypper in docker***.
 
 ![010.png](./images/010.png)
@@ -81,15 +81,15 @@ Ahora volvemos a ejecutar los comandos ***docker images*** y ***docker ps -a*** 
 
 ![018.png](./images/018.png)
 
-##4. Configuración de la red
+## 4. Configuración de la red
 Si queremos que nuestro contenedor tenga acceso a la red exterior, tenemos que ir a Yast -> Dispositivos de red -> Encaminamiento, y seleccionamos la casilla *Habilitar reenvío de IPv4*.
 
 ![019.png](./images/019.png)
 
-##5. Crear un contenedor manualmente
+## 5. Crear un contenedor manualmente
 Nuestro SO base es OpenSUSE, pero vamos a crear un contenedor Debian8, y dentro instalaremos Nginx.
 
-###5.1. Crear una imagen
+### 5.1. Crear una imagen
 Comenzamos lanzando el comando ***docker images*** para ver las imágenes que tenemos disponibles localmente.
 
 ![020.png](./images/020.png)
@@ -163,7 +163,7 @@ Ahora vamos a proceder a eliminar nuestro contenedor. Para ello, vamos a primero
 
 ![038.png](./images/038.png)
 
-###5.2. Crear contenedor
+### 5.2. Crear contenedor
 Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker.
 
 Iniciamos el contenedor con ***docker run --name=mv_nginx -p 80 -t alexis/nginx /root/server.sh***.
@@ -182,21 +182,21 @@ Al igual que al finalizar el apartado anterior, procedemos a parar y eliminar nu
 
 ![042.png](./images/042.png)
 
-###5.3. Más comandos
+### 5.3. Más comandos
 Información sobre otros comandos útiles:
 
 * docker start CONTAINERID, inicia un contenedor que estaba parado.
 * docker attach CONTAINERID, conecta el terminal actual con el interior de contenedor.
 
-##6. Crear un contenedor con Dockerfile
+## 6. Crear un contenedor con Dockerfile
 Ahora vamos a conseguir el mismo resultado del apartado anterior, pero usando un fichero de configuración, llamado *Dockerfile*.
 
-###6.1. Comprobaciones iniciales
+### 6.1. Comprobaciones iniciales
 Ejecutamos los comandos ***docker images***, ***dockers ps*** y ***docker ps -a***.
 
 ![043.png](./images/043.png)
 
-###6.2. Preparar ficheros
+### 6.2. Preparar ficheros
 Creamos el directorio *docker* en nuestro *home*, para poner dentro los siguientes ficheros.
 
 ![044.png](./images/044.png)
@@ -213,7 +213,7 @@ Fichero *holamundo.html*
 
 ![047.png](./images/047.png)
 
-###6.3. Crear imagen
+### 6.3. Crear imagen
 El fichero Dockerfile contiene la información necesaria para contruir el contenedor. Nos movemos al directorio *docker*, ejecutamos ***docker images*** para ver las imágenes locales, y ***docker build -t alexis/nginx2 .*** para construir una imagen a partir del *Dockerfile*.
 
 ![048.png](./images/048.png)
@@ -224,7 +224,7 @@ Comprobamos que se ha creado la imagen con el comando ***docker images***.
 
 ![050.png](./images/050.png)
 
-###6.4. Crear contenedor y comprobar
+### 6.4. Crear contenedor y comprobar
 A continuación vamos a crear un contenedor con el nombre *mv_nginx2*, a partir de la imagen *alexis/nginx2*, y queremos que este contenedor ejecute el programa */root/server.sh*.
 
 ![051.png](./images/051.png)
@@ -241,5 +241,5 @@ Comprobamos en el navegador con la URL *http://localhost:32768/holamundo.html*.
 
 ![054.png](./images/054.png)
 
-##7. Limpiar
+## 7. Limpiar
 Cuando terminamos con los contedores y ya no los necesitamos, es buena idea pararlos y/o destruirlos.

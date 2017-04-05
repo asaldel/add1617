@@ -1,7 +1,7 @@
 # NFS (Network File System)
 NFS es un protocolo para compartir recursos en red entre sistemas heterogéneos.
 
-##1. SO Windows
+## 1. SO Windows
 Para esta parte vamos a necesitar las siguientes máquinas:
 
 *  Servidor NFS
@@ -9,7 +9,7 @@ Para esta parte vamos a necesitar las siguientes máquinas:
 * Cliente NFS
 	* openSUSE 13.2
 
-###1.1. Servidor NFS Windows
+### 1.1. Servidor NFS Windows
 Esta máquina será un Windows 2012 Server y tendrá la siguiente configuración:
 
 * IP estática: 172.18.16.21
@@ -40,14 +40,14 @@ Comando *** nslookup www.iespuertodelacruz.es***
 
 Este comando no obtiene respuesta porque hemos establecido como servidor DNS primario la dirección IP 172.18.16.21, es decir, el servidor DNS primario de la máquina es la propia máquina, y debido a que ésta no es un servidor DNS, el comando no obtiene el resultado esperado.
 
-####1.1.1. Instalación del servicio NFS
+#### 1.1.1. Instalación del servicio NFS
 Procedemos a instalar el servicio NFS. Para ello vamos a *Roles y características*, agregamos el rol *Servidor de Archivos* y marcamos *Servidor para NFS*.
 
 ![007.png](./images/007.png)
 
 ![008.png](./images/008.png)
 
-####1.1.2. Configurar el servidor NFS
+#### 1.1.2. Configurar el servidor NFS
 Creamos la carpeta *C:\export16\public*. Picamos en la carpeta con el botón derecho -> Propiedades -> Compartir NFS, y la configuramos para que sea accesible desde la red en modo lectura/escritura con NFS.
 
 ![009.png](./images/009.png)
@@ -64,7 +64,7 @@ Ejecutamos el comando ***showmount -e 172.18.16.21***, para comprobar que los re
 
 ![012.png](./images/012.png)
 
-###1.2. Cliente NFS
+### 1.2. Cliente NFS
 Esta máquina será un openSUSE 13.2 y tendrá la siguiente configuración:
 
 * IP estática: 172.18.16.32
@@ -116,7 +116,7 @@ Comando ***blkid***
 
 ![023.png](./images/023.png)
 
-####1.2.1. Comprobar conectividad desde cliente al servidor
+#### 1.2.1. Comprobar conectividad desde cliente al servidor
 
 Comando ***ping -c4 172.18.16.21***
 
@@ -130,7 +130,7 @@ Comando ***showmount -e 172.18.16.21***
 
 ![026.png](./images/026.png)
 
-####1.2.2. Montar y usar cada recurso compartido desde el cliente
+#### 1.2.2. Montar y usar cada recurso compartido desde el cliente
 Creamos las carpetas */mnt/remoto16/public* y */mnt/remoto16/private*.
 
 ![027.png](./images/027.png)
@@ -161,7 +161,7 @@ Lanzamos el comando *** netstat -ntap*** para comprobar el acceso a los recursos
 
 ![032.png](./images/032.png)
 
-##2. SO OpenSUSE
+## 2. SO OpenSUSE
 Vamos a necesitar las siguientes máquinas:
 
 *  Servidor NFS
@@ -169,7 +169,7 @@ Vamos a necesitar las siguientes máquinas:
 * Cliente NFS
 	* openSUSE 13.2
 
-###2.1. Servidor NFS
+### 2.1. Servidor NFS
 Esta máquina será un openSUSE 13.2 y tendrá la siguiente configuración:
 
 * IP estática: 172.18.16.31
@@ -253,7 +253,7 @@ Ejecutamos ***showmount -e localhost*** para mostrar la lista de recursos export
 
 ![049.png](./images/049.png)
 
-###2.2. Cliente NFS
+### 2.2. Cliente NFS
 Esta máquina será un openSUSE 13.2 y tendrá la siguiente configuración:
 
 * IP estática: 172.18.16.32
@@ -305,7 +305,7 @@ Comando ***blkid***
 
 ![072.png](./images/072.png)
 
-####2.2.1. Comprobar conectividad desde cliente al servidor
+#### 2.2.1. Comprobar conectividad desde cliente al servidor
 
 Comando ***ping -c4 172.18.16.31***
 
@@ -319,7 +319,7 @@ Comando ***showmount -e 172.18.16.31***
 
 ![052.png](./images/052.png)
 
-####2.2.2. Montar y usar cada recurso compartido desde el cliente
+#### 2.2.2. Montar y usar cada recurso compartido desde el cliente
 Creamos las carpetas */mnt/remoto16/public* y */mnt/remoto16/private*.
 
 ![053.png](./images/053.png)
@@ -350,7 +350,7 @@ Lanzamos el comando *** netstat -ntap*** para comprobar el acceso a los recursos
 
 ![058.png](./images/058.png)
 
-###2.3 Montaje automático
+### 2.3 Montaje automático
 Acabamos de acceder a recursos remotos realizando un montaje de forma manual. Si reiniciamos el equipo cliente podremos ver que los montajes realizados de forma manual ya no están. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso, a no ser que hagamos una configuración permanente o automática.
 
 Vamos a configurar el montaje autoḿatico para el recurso compartido *public*.
@@ -367,7 +367,7 @@ Reiniciamos la máquina y ejecutamos el comando ***df -hT*** para comprobar el m
 
 ![061.png](./images/061.png)
 
-##3. Preguntas
+## 3. Preguntas
 * ¿Nuestro cliente GNU/Linux NFS puede acceder al servidor Windows NFS? Si. Esta combinación la hemos realizado en el apartado 1.2 de la actividad.
 * ¿Nuestro cliente Windows NFS podría acceder al servidor GNU/Linux NFS? No. Al usar una versión *Professional* de Windows 7, no se permite la instalación del servicio cliente para NFS.
 * Fijarse en los valores de usuarios propietario y grupo propietario de los ficheros que se guardan en el servidor NFS, cuando los creamos desde una conexión cliente NFS.
